@@ -23,6 +23,7 @@ void menuAdmin();
 void tambahtiket();
 void deluser();
 void viewall();
+void sortharga();
 
 int main()
 {
@@ -71,6 +72,7 @@ void mainMenu()
         break;
     case 99:
         exit(99);
+        cout<<"TERIMA KASIH"<<endl;
         break;
     }
     if (pil != 99)
@@ -85,9 +87,7 @@ void mainMenu()
 void daftar()
 {
    clrscr();
-    cout<<"* * * * * * * * * * * * * * * * * * * * * *"<<endl;
-    cout<<"             R E G I S T E R               "<<endl;
-    cout<<"* * * * * * * * * * * * * * * * * * * * * *"<<endl;
+    cout<<"---------REGISTER---------"<<endl;
     cout<<"ID         : ";cin>>XP.id_User;
     cout<<"Nama         : ";cin>>XP.nama;
     cout<<"Password     : ";cin>>XP.password;
@@ -275,6 +275,7 @@ void menuAdmin()
     cout<<"   2. Delete User"<<endl;
     cout<<"   3. Tambah Tiket"<<endl;
     cout<<"   4. View All"<<endl;
+    cout<<"   5. Sort Harga"<<endl;
     cout<<"   Pilih: ";
     cin>>pil;
     switch(pil)
@@ -292,6 +293,12 @@ void menuAdmin()
 
     case 3:
         tambahtiket();
+        break;
+    case 4:
+        viewall();
+        break;
+    case 5:
+        void sortharga();
         break;
     }
 
@@ -326,18 +333,18 @@ void tambahtiket()
         if (first(LC) == NULL)
         {
             insertFirstChild(LC,C);
-            cout<<"A";
+
         }
 
         else
         {
-            cout<<"1";
+
             while (Q != last(LC))
             {
-                cout<<"A";
+
                 if (first(LC) == last(LC))
                 {
-                    cout<<"B";
+
                     if (info(first(LC)).id_Tiket > x.id_Tiket)
                     {
                         insertLastChild(LC,C);
@@ -351,7 +358,7 @@ void tambahtiket()
                 else if(info(next(Q)).id_Tiket < x.id_Tiket)
                 {
                     tempC = next(tempC);
-                    cout<<"C";
+
                 }
                 Q = next(Q);
             }
@@ -399,5 +406,29 @@ if (first(LP) == NULL){
         menuAdmin();
     }
 }
+
+void viewall ()
+{
+    clrscr();
+    address_parent P = first(LP);
+    if (P != NULL)
+    {
+        while (P != NULL)
+        {
+            cout << "ID User : " << info(P).id_User << endl;
+            cout << "Nama : "<<info(P).nama<<endl;
+            cout<<"Transaksi : "<<endl;
+            printInfoChild(child(P));
+            P = next(P);
+        }
+    }
+    else
+    {
+        cout << "Tidak Ada Transaksi" << endl;
+        cout<<endl;
+    }
+    mainMenu();
+}
+
 
 
