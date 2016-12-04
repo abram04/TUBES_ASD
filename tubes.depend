@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1480866054 source:c:\users\situm\desktop\tubes asd\tubes\main.cpp
+	<iostream>
+	"reserv.h"
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+
+1480836263 c:\users\situm\desktop\tubes asd\tubes\reserv.h
+	<iostream>
+
+1480861623 source:c:\users\situm\desktop\tubes asd\tubes\reserv.cpp
+	"reserv.h"
+
